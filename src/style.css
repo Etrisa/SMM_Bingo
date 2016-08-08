@@ -1,0 +1,14 @@
+.tile {
+	text-align: center;
+}
+
+.tileContainer {
+	width: 10em;
+	height: 10em;
+	border: 1px solid black;
+	margin: 0.3em;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

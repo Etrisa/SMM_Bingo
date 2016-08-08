@@ -8,6 +8,12 @@ module.exports = {
     'webpack/hot/only-dev-server',
     './src/index'
   ],
+  resolve: {
+      extensions: ['', '.js', '.jsx', '.css'],
+      modulesDirectories: [
+        'node_modules'
+      ]        
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -17,7 +23,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    loaders: [{
+    loaders: [
+    { test: /\.css$/, loader: "style-loader!css-loader" },
+    { test: /\.png$/, loader: "url-loader?limit=100000" },
+    { test: /\.jpg$/, loader: "file-loader" },
+    {
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: path.join(__dirname, 'src')
