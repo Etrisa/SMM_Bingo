@@ -19,6 +19,20 @@ export default class App extends Component {
                 },{
                     text: 'Carl does insane kaizo level'
                 },{
+                    text: 'Carl does fake puke face'
+                },{
+                    text: 'Carl is super smart with chat (SIENCE!)'
+                },{
+                    text: 'True ending'
+                },{
+                    text: 'Carl does a hand-heart'
+                },{
+                    text: 'SPAAAAAAAAAAAAAAAAAACCCCCCCCCCCEEEEEEEEEEEE'
+                },{
+                    text: 'Spaghetti everywhere'
+                },{
+                    text: 'Carl puts epic highfive on screen'
+                },{
                     text: 'Death by ghost'
                 }
 
