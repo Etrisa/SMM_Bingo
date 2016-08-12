@@ -8,75 +8,49 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            tiles: [
-                {
-                    text: 'Yoshi in lava'
-                },{
-                    text: 'Gets trolled by onescreen puzzle'
-                },{
-                    text: 'Stream gets dirty (nauhgty words)'
-                },{
-                    text: 'Chat spams "one more"'
-                },{
-                    text: 'Carl does insane kaizo level'
-                },{
-                    text: 'Carl does fake puke face'
-                },{
-                    text: 'Carl is super smart with chat (SIENCE!)'
-                },{
-                    text: 'True ending'
-                },{
-                    text: 'Carl does a hand-heart'
-                },{
-                    text: 'SPAAAAAAAAAAAAAAAAAACCCCCCCCCCCEEEEEEEEEEEE'
-                },{
-                    text: 'Spaghetti everywhere'
-                },{
-                    text: 'Carl puts epic highfive on screen'
-                },{
-                    text: 'Death by ghost'
-                },{
-                    text: '14'
-                },{
-                    text: '15'
-                },{
-                    text: '16'
-                },{
-                    text: '17'
-                },{
-                    text: '18'
-                },{
-                    text: '19'
-                },{
-                    text: '20'
-                },{
-                    text: '21'
-                },{
-                    text: '22'
-                },{
-                    text: '23'
-                },{
-                    text: '24'
-                },{
-                    text: '25'
-                },{
-                    text: '26'
-                }
-
+            tileTexts: [
+                    'Gets trolled by onescreen puzzle',
+                    'Stream gets dirty (nauhgty words)',
+                    'Chat spams "one more"',
+                    'Carl does insane kaizo level',
+                    'Carl does fake puke face',
+                    'Carl is super smart with chat (SIENCE!)',
+                    'True ending',
+                    'Carl does a hand-heart',
+                    'SPAAAAAAAAAAAAAAAAAACCCCCCCCCCCEEEEEEEEEEEE',
+                    'Spaghetti everywhere',
+                    'Carl puts epic highfive on screen',
+                    'Death by ghost',
+                    '14',
+                    '15',
+                    '16',
+                    '17',
+                    '18',
+                    '19',
+                    '20',
+                    '21',
+                    '22',
+                    '23',
+                    '24',
+                    '25',
+                    '26'
             ]
         }
     }
 
+    componentDidMount() {
+        console.log(this.props.params);
+    }
 
     renderRow(row) {
         return (
-            row.map((t, index) => <Tile key={index} text={t.text} />)
+            row.map((t, index) => <Tile key={index} text={t} />)
         )
     }
 
     render() {
-        let tiles = this.state.tiles;
-        tiles = _.shuffle(tiles);
+        let tileTexts = this.state.tileTexts;
+        tileTexts = _.shuffle(tileTexts);
 
         let rows = [];
         let row = [];
@@ -86,7 +60,7 @@ export default class App extends Component {
                 rows.push(row);
                 row = [];
             }
-            row.push(tiles[i])
+            row.push(tileTexts[i])
         }
 
         return (
