@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tile from './Tile';
 import "./style.css";
+import _ from "lodash";
 
 export default class App extends Component {
 
@@ -13,7 +14,7 @@ export default class App extends Component {
                 },{
                     text: 'Gets trolled by onescreen puzzle'
                 },{
-                    text: 'Carl says dickbags'
+                    text: 'Stream gets dirty (nauhgty words)'
                 },{
                     text: 'Chat spams "one more"'
                 },{
@@ -34,17 +35,68 @@ export default class App extends Component {
                     text: 'Carl puts epic highfive on screen'
                 },{
                     text: 'Death by ghost'
+                },{
+                    text: '14'
+                },{
+                    text: '15'
+                },{
+                    text: '16'
+                },{
+                    text: '17'
+                },{
+                    text: '18'
+                },{
+                    text: '19'
+                },{
+                    text: '20'
+                },{
+                    text: '21'
+                },{
+                    text: '22'
+                },{
+                    text: '23'
+                },{
+                    text: '24'
+                },{
+                    text: '25'
+                },{
+                    text: '26'
                 }
 
             ]
         }
     }
 
-    render() {
-        const tiles = this.state.tiles;
+
+    renderRow(row) {
         return (
-           <div>
-                {tiles.map((tile)=><Tile text={tile.text} />)}
+            row.map((t, index) => <Tile key={index} text={t.text} />)
+        )
+    }
+
+    render() {
+        let tiles = this.state.tiles;
+        tiles = _.shuffle(tiles);
+
+        let rows = [];
+        let row = [];
+
+        for (var i = 0; i <= 25; i++) {
+            if (i % 5 === 0 && i !== 0) {
+                rows.push(row);
+                row = [];
+            }
+            row.push(tiles[i])
+        }
+
+        return (
+           <div className='appContainer' >
+                {
+                    rows.map(r => {
+
+                        return <div className='rowContainer' >{this.renderRow(r)}</div>
+                    })
+                }
            </div>
         );
     }

@@ -1,5 +1,7 @@
 .tile {
 	text-align: center;
+	width: inherit;
+	word-wrap: break-word;
 }
 
 .tileContainer {
@@ -11,5 +13,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	float:left;
+}
+
+.appContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.rowContainer {
+	display: flex;
 }
